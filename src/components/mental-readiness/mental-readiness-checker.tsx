@@ -155,7 +155,7 @@ export function MentalReadinessChecker() {
           </Form>
         </CardContent>
       </Card>
-      <Card className="flex flex-col bg-secondary">
+      <Card className="flex flex-col bg-accent/10">
         <CardHeader>
           <CardTitle>AI Mindset Coach</CardTitle>
           <CardDescription>
