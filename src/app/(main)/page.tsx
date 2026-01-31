@@ -1,11 +1,10 @@
 import { InjuryRiskAssessment } from "@/components/dashboard/injury-risk-assessment";
 import { PageHeader, PageHeaderDescription, PageHeaderTitle } from "@/components/page-header";
 import { Card } from "@/components/ui/card";
-import { FlaskConical, BookOpen, Zap } from "lucide-react";
+import { FlaskConical, BookOpen, Zap, BarChart3, User, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 export default function DashboardPage() {
   const actionCards = [
@@ -27,6 +26,24 @@ export default function DashboardPage() {
       icon: BookOpen,
       image_id: "learn-acl",
     },
+    {
+      href: "/progress",
+      label: "My Stats",
+      icon: BarChart3,
+      image_id: "progress",
+    },
+    {
+      href: "/profile",
+      label: "My Profile",
+      icon: User,
+      image_id: "profile",
+    },
+     {
+      href: "/team",
+      label: "Team Hub",
+      icon: MessageSquare,
+      image_id: "soccer",
+    },
   ];
 
   return (
@@ -42,18 +59,11 @@ export default function DashboardPage() {
         
         <div>
           <h3 className="text-2xl font-semibold font-headline tracking-tight mb-4">Quick Actions</h3>
-          <Carousel 
-            opts={{
-              align: "start",
-            }} 
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {actionCards.map((card, index) => {
                 const cardImage = PlaceHolderImages.find(p => p.id === card.image_id);
                 return (
-                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                    <Link href={card.href} className="relative block group overflow-hidden rounded-lg h-full">
+                    <Link key={index} href={card.href} className="relative block group overflow-hidden rounded-lg h-full">
                       <Card className="h-full">
                         {cardImage && <Image src={cardImage.imageUrl} alt={cardImage.description} width={400} height={300} className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105" data-ai-hint={cardImage.imageHint} />}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col items-center justify-end p-6">
@@ -62,11 +72,9 @@ export default function DashboardPage() {
                         </div>
                       </Card>
                     </Link>
-                  </CarouselItem>
                 );
               })}
-            </CarouselContent>
-          </Carousel>
+          </div>
         </div>
       </div>
     </div>
