@@ -41,6 +41,54 @@
       "description": "A person playing tennis.",
       "imageUrl": "https://images.unsplash.com/photo-1516742720271-6ae39cbc5bd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZW5uaXMlMjBwbGF5ZXJ8ZW58MHx8fHwxNzY5ODg3MjM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tennis player"
+    },
+    {
+      "id": "learn-warmup",
+      "description": "A team of soccer players warming up on the field.",
+      "imageUrl": "https://images.unsplash.com/photo-1571019614242-c5c5792c3709?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzb2NjZXIlMjB3YXJtdXB8ZW58MHx8fHwxNzEwNTMwNTI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team warmup"
+    },
+    {
+      "id": "learn-strength",
+      "description": "An athlete performing a weighted leg exercise in a gym.",
+      "imageUrl": "https://images.unsplash.com/photo-1581009137052-c4097e5b3181?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxoYW1zdHJpbmclMjBjdXJsfGVufDB8fHx8MTcxMDUzMDYyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "leg exercise"
+    },
+    {
+      "id": "learn-acl",
+      "description": "An athlete performing a box jump, demonstrating explosive power.",
+      "imageUrl": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhdGhsZXRlJTIwanVtcGluZ3xlbnwwfHx8fDE3MTA1MzA2ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "athlete jumping"
+    },
+    {
+      "id": "learn-shoulder",
+      "description": "A person doing a shoulder stretch in a gym.",
+      "imageUrl": "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaG91bGRlciUyMHN0cmV0Y2h8ZW58MHx8fHwxNzEwNTMwNzMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "shoulder stretch"
+    },
+    {
+      "id": "learn-ankle",
+      "description": "Close-up of a person performing an ankle stretch.",
+      "imageUrl": "https://images.unsplash.com/photo-1620392189309-7243913c7943?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhbmtMGUlMjBzdHJldGNofGVufDB8fHx8MTcxMDUzMDgwNHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ankle stretch"
+    },
+    {
+      "id": "learn-knee",
+      "description": "A runner pauses to hold their knee, possibly feeling pain.",
+      "imageUrl": "https://images.unsplash.com/photo-1511802348164-3a0f3a510931?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxydW5uZXIlMjBrbmVlfGVufDB8fHx8MTcxMDUzMDgzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "runner knee"
+    },
+    {
+      "id": "learn-elbow",
+      "description": "A baseball pitcher in mid-throw, showing the strain on the elbow.",
+      "imageUrl": "https://images.unsplash.com/photo-1554511523-5240c2936a29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYXNlYmFsbCUyMHBpdGNoZXJ8ZW58MHx8fHwxNzEwNTMwODYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "baseball pitcher"
+    },
+    {
+      "id": "learn-concussion",
+      "description": "A football helmet lying on a bench, representing head safety.",
+      "imageUrl": "https://images.unsplash.com/photo-1591024389947-8149c565a484?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmb290YmFsbCUyMGhlbG1ldHxlbnwwfHx8fDE3MTA1MzA5MDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "football helmet"
     }
   ]
 }

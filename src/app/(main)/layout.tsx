@@ -16,6 +16,7 @@ import {
   FlaskConical,
   FileVideo,
   User,
+  BookOpen,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/icons";
@@ -31,6 +32,7 @@ export default function MainLayout({
     { href: "/", label: "Home", icon: Home },
     { href: "/analysis", label: "Check-up", icon: FileVideo },
     { href: "/plan", label: "My Plan", icon: FlaskConical },
+    { href: "/learn", label: "Learn", icon: BookOpen },
     { href: "/progress", label: "Awards", icon: BarChart3 },
     { href: "/profile", label: "Me", icon: User },
   ];
