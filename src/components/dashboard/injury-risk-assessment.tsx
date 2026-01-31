@@ -24,13 +24,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { getInjuryRisk } from "@/app/actions";
 import type { InjuryRiskAssessmentOutput } from "@/ai/flows/injury-risk-assessment";
-import { Loader2, ShieldAlert } from "lucide-react";
+import { Loader2, ShieldAlert, Smile, Meh, Frown, Sparkles } from "lucide-react";
 
 const formSchema = z.object({
-  historicalData: z.string().min(10, "Please provide more details."),
-  workload: z.string().min(10, "Please provide more details."),
-  recovery: z.string().min(10, "Please provide more details."),
-  biomechanics: z.string().min(10, "Please provide more details."),
+  historicalData: z.string().min(10, "Tell us a bit more!"),
+  workload: z.string().min(10, "Tell us a bit more!"),
+  recovery: z.string().min(10, "Tell us a bit more!"),
+  biomechanics: z.string().min(10, "Tell us a bit more!"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -38,7 +38,16 @@ type FormData = z.infer<typeof formSchema>;
 const RiskGauge = ({ score }: { score: number }) => {
   const circumference = 2 * Math.PI * 45;
   const offset = circumference - (score / 100) * circumference;
-  const color = score > 75 ? "hsl(var(--primary))" : score > 40 ? "hsl(var(--chart-3))" : "hsl(var(--chart-2))";
+  
+  let color = "hsl(var(--chart-1))"; // Green
+  let Icon = Smile;
+  if (score > 66) {
+    color = "hsl(var(--chart-3))"; // Red
+    Icon = Frown;
+  } else if (score > 33) {
+    color = "hsl(var(--chart-2))"; // Yellow
+    Icon = Meh;
+  }
 
   return (
     <div className="relative size-48">
@@ -67,7 +76,8 @@ const RiskGauge = ({ score }: { score: number }) => {
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-4xl font-bold font-headline">{score}</span>
+        <Icon className="size-12 mb-1" style={{color}} />
+        <span className="text-4xl font-bold font-headline" style={{color}}>{score}</span>
         <span className="text-sm text-muted-foreground">Risk Score</span>
       </div>
     </div>
@@ -84,10 +94,10 @@ export function InjuryRiskAssessment() {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      historicalData: "Completed 3 intense running sessions last week, feeling some fatigue.",
-      workload: "Today's plan is a 5-mile tempo run.",
-      recovery: "Slept 6 hours last night, HRV is slightly below baseline.",
-      biomechanics: "Recent analysis showed slight right-side dominance during sprints.",
+      historicalData: "I played soccer for an hour and felt a little tired.",
+      workload: "Today I have practice for 2 hours.",
+      recovery: "I slept for 8 hours and feel great!",
+      biomechanics: "My coach said I'm running much faster now.",
     },
   });
 
@@ -108,9 +118,9 @@ export function InjuryRiskAssessment() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <Card>
         <CardHeader>
-          <CardTitle>Predictive Injury Risk Scoring</CardTitle>
+          <CardTitle>Daily Check-in</CardTitle>
           <CardDescription>
-            Fill in your data to get a daily injury risk score.
+            Tell us how you're feeling to get your readiness score!
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -121,9 +131,9 @@ export function InjuryRiskAssessment() {
                 name="historicalData"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Historical Data</FormLabel>
+                    <FormLabel>How have your recent games/practices been?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Describe your recent training, performance, and workload..." {...field} />
+                      <Textarea placeholder="e.g. Scored a goal, ran a fast lap..." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -134,9 +144,9 @@ export function InjuryRiskAssessment() {
                 name="workload"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Today's Workload</FormLabel>
+                    <FormLabel>What's the plan for today?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="What is your planned workout for today?" {...field} />
+                      <Textarea placeholder="e.g. Soccer practice, a run in the park..." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -147,9 +157,9 @@ export function InjuryRiskAssessment() {
                 name="recovery"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Recovery Metrics</FormLabel>
+                    <FormLabel>How did you rest?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Note your sleep quality, HRV, soreness, etc." {...field} />
+                      <Textarea placeholder="e.g. Slept well, feel a bit tired..." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -160,17 +170,17 @@ export function InjuryRiskAssessment() {
                 name="biomechanics"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Biomechanical Data</FormLabel>
+                    <FormLabel>Any notes on your moves?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Any notes from recent gait/technique analysis?" {...field} />
+                      <Textarea placeholder="e.g. My jump shot is feeling good!" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" disabled={isLoading} className="w-full">
-                {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                Assess My Risk
+                {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 size-4" />}
+                Get My Score!
               </Button>
             </form>
           </Form>
@@ -179,35 +189,35 @@ export function InjuryRiskAssessment() {
 
       <Card className="flex flex-col">
         <CardHeader>
-          <CardTitle>AI Risk Analysis</CardTitle>
+          <CardTitle>AI Coach Analysis</CardTitle>
           <CardDescription>
-            Your personalized risk assessment will appear here.
+            Your personalized readiness report will appear here.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow flex flex-col items-center justify-center gap-6">
           {isLoading && (
             <div className="flex flex-col items-center gap-4">
               <Loader2 className="size-12 animate-spin text-primary" />
-              <p className="text-muted-foreground">Analyzing your data...</p>
+              <p className="text-muted-foreground">Thinking...</p>
             </div>
           )}
           {!isLoading && !result && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
                 <ShieldAlert className="mx-auto size-12 mb-4 text-primary/50" />
-                <p>Submit your data to see your injury risk assessment.</p>
+                <p>Fill out the check-in to see your score!</p>
               </div>
           )}
           {result && (
             <div className="w-full space-y-6 text-center">
               <div className="flex justify-center">
-                <RiskGauge score={result.riskScore} />
+                <RiskGauge score={Math.round(result.riskScore)} />
               </div>
               <div>
-                <h4 className="font-semibold font-headline mb-2">Risk Explanation</h4>
+                <h4 className="font-semibold font-headline text-lg mb-2">Coach's Notes</h4>
                 <p className="text-sm text-muted-foreground">{result.riskExplanation}</p>
               </div>
               <div>
-                <h4 className="font-semibold font-headline mb-2">Recommended Action</h4>
+                <h4 className="font-semibold font-headline text-lg mb-2">Today's Tip</h4>
                 <p className="text-sm text-muted-foreground">{result.recommendedAction}</p>
               </div>
             </div>

@@ -13,9 +13,9 @@ export default function DashboardPage() {
   return (
     <div className="container mx-auto p-4 sm:p-6 lg:p-8">
       <PageHeader>
-        <PageHeaderTitle>Dashboard</PageHeaderTitle>
+        <PageHeaderTitle>Welcome Back, Champion!</PageHeaderTitle>
         <PageHeaderDescription>
-          Your daily injury prevention and performance overview.
+          Here's your mission for today. Let's get to it!
         </PageHeaderDescription>
       </PageHeader>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -28,7 +28,7 @@ export default function DashboardPage() {
                     {analyzeImage && <Image src={analyzeImage.imageUrl} alt={analyzeImage.description} width={400} height={300} className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105" data-ai-hint={analyzeImage.imageHint}/>}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col items-center justify-end p-6">
                         <FileVideo className="size-8 mb-2 text-white" />
-                        <span className="font-semibold text-lg text-white text-center">Analyze Technique</span>
+                        <span className="font-semibold text-lg text-white text-center">Form Check-up</span>
                     </div>
                 </Card>
             </Link>
@@ -37,7 +37,7 @@ export default function DashboardPage() {
                     {planImage && <Image src={planImage.imageUrl} alt={planImage.description} width={400} height={300} className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105" data-ai-hint={planImage.imageHint} />}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col items-center justify-end p-6">
                         <FlaskConical className="size-8 mb-2 text-white" />
-                        <span className="font-semibold text-lg text-white text-center">Get My Plan</span>
+                        <span className="font-semibold text-lg text-white text-center">Today's Game Plan</span>
                     </div>
                 </Card>
             </Link>

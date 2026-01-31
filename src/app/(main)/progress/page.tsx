@@ -15,9 +15,9 @@ export default function ProgressPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         <div className="container mx-auto p-4 sm:p-6 lg:p-8 absolute bottom-0 left-0 right-0">
           <PageHeader className="mb-0">
-            <PageHeaderTitle>Progress &amp; Achievements</PageHeaderTitle>
+            <PageHeaderTitle>My Awards &amp; Progress</PageHeaderTitle>
             <PageHeaderDescription>
-              Track your workload, complete quests, and earn badges on your journey to peak performance.
+              Track your energy, complete quests, and earn badges on your journey to becoming a star!
             </PageHeaderDescription>
           </PageHeader>
         </div>
@@ -26,7 +26,7 @@ export default function ProgressPage() {
       <div className="container mx-auto p-4 sm:p-6 lg:p-8 space-y-8 -mt-8">
         <Card>
           <CardHeader>
-            <CardTitle>Longitudinal Load Management</CardTitle>
+            <CardTitle>My Energy Levels</CardTitle>
           </CardHeader>
           <CardContent>
             <LoadChart />
@@ -35,7 +35,7 @@ export default function ProgressPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Gamified Prevention Quests</CardTitle>
+            <CardTitle>Quests &amp; Badges</CardTitle>
           </CardHeader>
           <CardContent>
             <Gamification />

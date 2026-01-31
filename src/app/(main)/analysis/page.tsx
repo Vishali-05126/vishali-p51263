@@ -5,9 +5,9 @@ export default function AnalysisPage() {
   return (
     <div className="container mx-auto p-4 sm:p-6 lg:p-8">
       <PageHeader>
-        <PageHeaderTitle>Technique Analysis</PageHeaderTitle>
+        <PageHeaderTitle>Technique Check-up</PageHeaderTitle>
         <PageHeaderDescription>
-          Upload a video of your movement to get AI-powered biomechanical feedback.
+          Upload a video of your moves to get tips from our AI coach.
         </PageHeaderDescription>
       </PageHeader>
       <TechniqueFeedback />

@@ -23,7 +23,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { getExercisePlan } from "@/app/actions";
 import type { PersonalizedExerciseRecommendationsOutput } from "@/ai/flows/personalized-exercise-recommendations";
-import { Loader2, Bot } from "lucide-react";
+import { Loader2, Bot, Sparkles } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 
 const formSchema = z.object({
@@ -68,9 +68,9 @@ export function ExercisePrescription() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <Card>
         <CardHeader>
-          <CardTitle>Personalize Your Plan</CardTitle>
+          <CardTitle>Build Your Plan</CardTitle>
           <CardDescription>
-            Provide your latest metrics for an AI-generated corrective routine.
+            Update your info to get a new game plan from your AI coach.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -81,7 +81,7 @@ export function ExercisePrescription() {
                 name="injuryRiskScore"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Injury Risk Score: {field.value}</FormLabel>
+                    <FormLabel>Readiness Score: {field.value}</FormLabel>
                     <FormControl>
                       <Slider
                         defaultValue={[field.value]}
@@ -98,9 +98,9 @@ export function ExercisePrescription() {
                 name="recentPerformance"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Recent Performance</FormLabel>
+                    <FormLabel>How'd You Do Last Time?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="How was your last session?" {...field} />
+                      <Textarea placeholder="How was your last practice or game?" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -111,9 +111,9 @@ export function ExercisePrescription() {
                 name="painFeedback"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Pain & Soreness</FormLabel>
+                    <FormLabel>Any Aches or Pains?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Any specific areas of pain or soreness?" {...field} />
+                      <Textarea placeholder="Tell us if anything is sore." {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -124,9 +124,9 @@ export function ExercisePrescription() {
                 name="sleepData"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Sleep Data</FormLabel>
+                    <FormLabel>How'd You Sleep?</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="How was your sleep last night?" {...field} />
+                      <Textarea placeholder="Did you sleep like a champ?" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -137,16 +137,17 @@ export function ExercisePrescription() {
                 name="hrvData"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>HRV Data</FormLabel>
+                    <FormLabel>Energy Level (HRV)</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="What's your latest Heart Rate Variability reading?" {...field} />
+                      <Textarea placeholder="What's your latest energy reading?" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <Button type="submit" disabled={isLoading} className="w-full">
-                {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Generate My Plan"}
+                {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 size-4"/>}
+                Generate My Plan
               </Button>
             </form>
           </Form>
@@ -154,27 +155,27 @@ export function ExercisePrescription() {
       </Card>
       <Card className="flex flex-col">
         <CardHeader>
-          <CardTitle>AI Exercise Recommendations</CardTitle>
+          <CardTitle>AI Coach's Game Plan</CardTitle>
           <CardDescription>
-            Your personalized routine for today will appear here.
+            Your personalized routine for today will show up here.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex-grow flex items-center justify-center">
           {isLoading && (
             <div className="flex flex-col items-center gap-4">
               <Loader2 className="size-12 animate-spin text-primary" />
-              <p className="text-muted-foreground">Generating your plan...</p>
+              <p className="text-muted-foreground">Creating your plan...</p>
             </div>
           )}
           {!isLoading && !result && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
                 <Bot className="mx-auto size-12 mb-4 text-primary/50" />
-                <p>Submit your data to get a personalized exercise plan.</p>
+                <p>Fill out your info to get a personalized game plan!</p>
               </div>
           )}
           {result && (
             <div className="w-full space-y-4">
-               <h4 className="font-semibold font-headline text-lg">Today's Corrective Routine:</h4>
+               <h4 className="font-semibold font-headline text-lg">Today's Mission:</h4>
                <div className="prose prose-sm text-muted-foreground max-w-none whitespace-pre-wrap rounded-md border p-4 bg-secondary/50">
                 {result.exerciseRecommendations}
                </div>

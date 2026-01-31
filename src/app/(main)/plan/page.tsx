@@ -5,9 +5,9 @@ export default function PlanPage() {
   return (
     <div className="container mx-auto p-4 sm:p-6 lg:p-8">
       <PageHeader>
-        <PageHeaderTitle>Adaptive Exercise Plan</PageHeaderTitle>
+        <PageHeaderTitle>Your Daily Game Plan</PageHeaderTitle>
         <PageHeaderDescription>
-          Get a personalized corrective routine that adapts daily to your body's needs.
+          Get a personalized routine that changes with you every day!
         </PageHeaderDescription>
       </PageHeader>
       <ExercisePrescription />

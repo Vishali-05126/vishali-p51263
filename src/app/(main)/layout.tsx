@@ -16,11 +16,9 @@ import {
   FlaskConical,
   FileVideo,
   User,
-  PanelLeft,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/icons";
-import { Button } from "@/components/ui/button";
 
 export default function MainLayout({
   children,
@@ -30,11 +28,11 @@ export default function MainLayout({
   const pathname = usePathname();
   
   const menuItems = [
-    { href: "/", label: "Dashboard", icon: Home },
-    { href: "/analysis", label: "Analysis", icon: FileVideo },
+    { href: "/", label: "Home", icon: Home },
+    { href: "/analysis", label: "Check-up", icon: FileVideo },
     { href: "/plan", label: "My Plan", icon: FlaskConical },
-    { href: "/progress", label: "Progress", icon: BarChart3 },
-    { href: "/profile", label: "Profile", icon: User },
+    { href: "/progress", label: "Awards", icon: BarChart3 },
+    { href: "/profile", label: "Me", icon: User },
   ];
 
   return (
@@ -44,7 +42,7 @@ export default function MainLayout({
           <SidebarHeader>
             <div className="flex items-center gap-2">
               <Logo className="size-8 text-primary" />
-              <span className="text-lg font-semibold font-headline">InjurEase</span>
+              <span className="text-2xl font-semibold font-headline tracking-wider">PlaySafe</span>
             </div>
           </SidebarHeader>
           <SidebarContent>
@@ -67,7 +65,7 @@ export default function MainLayout({
           </SidebarContent>
           <SidebarFooter>
             <div className="flex justify-center group-data-[collapsible=icon]:hidden">
-              <span className="text-xs text-muted-foreground">© 2024 InjurEase</span>
+              <span className="text-xs text-muted-foreground">© 2024 PlaySafe</span>
             </div>
           </SidebarFooter>
         </Sidebar>

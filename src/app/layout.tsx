@@ -1,22 +1,24 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Poppins, Luckiest_Guy } from 'next/font/google';
 import { Toaster } from "@/components/ui/toaster";
 import './globals.css';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
-  title: 'InjurEase',
-  description: 'Personalized AI-driven sports injury prevention and performance optimization.',
+  title: 'PlaySafe',
+  description: 'Personalized AI-driven sports injury prevention and performance optimization for young athletes.',
 };
 
-const fontBody = Inter({
+const fontBody = Poppins({
   subsets: ['latin'],
   variable: '--font-body',
+  weight: ['400', '500', '600', '700'],
 });
 
-const fontHeadline = Space_Grotesk({
+const fontHeadline = Luckiest_Guy({
   subsets: ['latin'],
   variable: '--font-headline',
+  weight: '400',
 });
 
 export default function RootLayout({
