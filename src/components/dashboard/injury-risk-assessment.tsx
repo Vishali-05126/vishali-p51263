@@ -187,7 +187,7 @@ export function InjuryRiskAssessment() {
         </CardContent>
       </Card>
 
-      <Card className="flex flex-col">
+      <Card className="flex flex-col bg-secondary">
         <CardHeader>
           <CardTitle>AI Coach Analysis</CardTitle>
           <CardDescription>
