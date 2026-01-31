@@ -25,7 +25,7 @@ export function PageHeaderTitle({
   return (
     <h1
       className={cn(
-        "text-3xl font-bold tracking-tight font-headline sm:text-4xl",
+        "text-3xl font-bold tracking-tight font-headline sm:text-4xl bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent",
         className
       )}
       {...props}

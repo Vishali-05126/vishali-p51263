@@ -64,7 +64,7 @@ export default function DashboardPage() {
         <InjuryRiskAssessment />
         
         <div>
-          <h3 className="text-2xl font-semibold font-headline tracking-tight mb-4">Quick Actions</h3>
+          <h3 className="text-2xl font-semibold font-headline tracking-tight mb-4 bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Quick Actions</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {actionCards.map((card, index) => {
                 const cardImage = PlaceHolderImages.find(p => p.id === card.image_id);

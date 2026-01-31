@@ -181,11 +181,11 @@ export function MentalReadinessChecker() {
                     <ReadinessGauge score={Math.round(result.readinessScore)} />
                 </div>
                 <div>
-                    <h4 className="font-semibold font-headline text-lg text-accent mb-2">Coach's Feedback</h4>
+                    <h4 className="font-semibold font-headline text-lg mb-2 bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Coach's Feedback</h4>
                     <p className="text-sm text-muted-foreground">{result.feedback}</p>
                 </div>
                 <div>
-                    <h4 className="font-semibold font-headline text-lg text-accent mb-2">Today's Focus</h4>
+                    <h4 className="font-semibold font-headline text-lg mb-2 bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Today's Focus</h4>
                     <p className="text-sm text-muted-foreground">{result.recommendation}</p>
                 </div>
             </div>

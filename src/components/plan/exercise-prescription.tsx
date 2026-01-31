@@ -175,7 +175,7 @@ export function ExercisePrescription() {
           )}
           {result && (
             <div className="w-full space-y-4">
-               <h4 className="font-semibold font-headline text-lg">Today's Mission:</h4>
+               <h4 className="font-semibold font-headline text-lg bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Today's Mission:</h4>
                <div className="prose prose-sm text-muted-foreground max-w-none whitespace-pre-wrap rounded-md border p-4 bg-secondary/50">
                 {result.exerciseRecommendations}
                </div>

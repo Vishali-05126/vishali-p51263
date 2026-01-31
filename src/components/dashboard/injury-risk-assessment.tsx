@@ -213,11 +213,11 @@ export function InjuryRiskAssessment() {
                 <RiskGauge score={Math.round(result.riskScore)} />
               </div>
               <div>
-                <h4 className="font-semibold font-headline text-lg mb-2">Coach's Notes</h4>
+                <h4 className="font-semibold font-headline text-lg mb-2 bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Coach's Notes</h4>
                 <p className="text-sm text-muted-foreground">{result.riskExplanation}</p>
               </div>
               <div>
-                <h4 className="font-semibold font-headline text-lg mb-2">Today's Tip</h4>
+                <h4 className="font-semibold font-headline text-lg mb-2 bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Today's Tip</h4>
                 <p className="text-sm text-muted-foreground">{result.recommendedAction}</p>
               </div>
             </div>

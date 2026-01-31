@@ -22,7 +22,7 @@ export function Gamification() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
-        <h4 className="font-semibold font-headline text-xl mb-4">Active Quests</h4>
+        <h4 className="font-semibold font-headline text-xl mb-4 bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Active Quests</h4>
         <div className="space-y-4">
           {quests.map((quest) => (
             <Card key={quest.title}>
@@ -46,7 +46,7 @@ export function Gamification() {
         </div>
       </div>
       <div>
-        <h4 className="font-semibold font-headline text-xl mb-4">Your Badge Case</h4>
+        <h4 className="font-semibold font-headline text-xl mb-4 bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent">Your Badge Case</h4>
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
           {badges.map((badge) => (
             <div key={badge.name} className="flex flex-col items-center text-center gap-2">
