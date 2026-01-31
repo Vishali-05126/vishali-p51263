@@ -1,5 +1,13 @@
 # Firebase Studio
+# Inspiration
+Sports injuries don’t usually happen suddenly—they build up silently due to poor biomechanics, unmanaged training load, and inadequate recovery. We were inspired by how most athletes realize the problem only *after* they are injured. Existing tools are reactive and generic. We wanted to build a solution that acts **before failure happens**, using only a smartphone, and makes elite-level sports science accessible to every athlete.
 
-This is a NextJS starter in Firebase Studio.
+# What it does
+**InjurEase** is an AI-powered sports injury prevention app that predicts injury risk before it occurs. It analyzes athlete movement using smartphone-based biomechanics, monitors training load and recovery signals, and generates a daily injury risk score. Based on this score, the app provides personalized corrective exercises, recovery guidance, and pre-emptive alerts to help athletes train safely and consistently.
 
-To get started, take a look at src/app/page.tsx.
+# How we built it
+We built InjurEase using a modular, AI-first architecture. The mobile app captures movement data through the phone camera and user inputs. Computer vision models perform pose estimation to extract joint angles and asymmetries. These signals, combined with workload and recovery data, feed into a hybrid injury risk engine (sports-science rules + machine learning). A cloud backend powers analytics, personalization, and adaptive AI coaching.
+
+# Challenges we ran into
+One major challenge was converting complex sports science concepts into simple, actionable insights for users. Ensuring reliable biomechanics analysis from noisy camera data was another hurdle. We also had to balance model accuracy with real-time performance and build a meaningful solution within hackathon time constraints—without relying on expensive wearables.
+
