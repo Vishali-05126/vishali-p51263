@@ -11,3 +11,23 @@ We built InjurEase using a modular, AI-first architecture. The mobile app captur
 # Challenges we ran into
 One major challenge was converting complex sports science concepts into simple, actionable insights for users. Ensuring reliable biomechanics analysis from noisy camera data was another hurdle. We also had to balance model accuracy with real-time performance and build a meaningful solution within hackathon time constraints—without relying on expensive wearables.
 
+
+
+# Accomplishments that we're proud of
+- Built a **predictive injury prevention system** instead of a reactive fitness tracker  
+- Implemented **smartphone-based biomechanics analysis**, removing the need for expensive sensors  
+- Designed a **daily injury risk scoring engine** with clear, explainable insights  
+- Developed an **adaptive AI coach** that personalizes corrective exercises in real time  
+- Integrated **training load and recovery signals** into a single risk model  
+- Created a **scalable architecture** suitable for individual athletes, teams, and coaches  
+- Delivered a **working, impactful prototype within hackathon constraints**
+-
+- # What's next for InjurEase
+- 
+- Introduce **coach and physiotherapist dashboards** for team-level injury monitoring  
+- Enhance **injury prediction accuracy** using larger and more diverse athlete datasets  
+- Add **wearable integrations** (HRV, sleep, impact metrics) for deeper recovery insights  
+- Expand biomechanics analysis to **sport-specific movements** (cricket, football, athletics, etc.)  
+- Launch **team challenges and competitive prevention programs** to improve adherence  
+- Develop **clinical-grade validation** in collaboration with sports medicine professionals  
+- Scale InjurEase as a **standard injury-prevention layer** for athlete training ecosystems
