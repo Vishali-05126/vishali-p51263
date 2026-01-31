@@ -1,0 +1,27 @@
+## 🔄 System Flow Diagram
+
+```mermaid
+flowchart TD
+    A[Athlete / User] --> B[Mobile App]
+    B --> C[Camera-Based Movement Capture]
+    B --> D[User Inputs\nTraining, Pain, Fatigue]
+
+    C --> E[Pose Estimation & Biomechanics Analysis]
+    D --> F[Load & Recovery Data Processing]
+
+    E --> G[Feature Extraction\nJoint Angles, Asymmetry]
+    F --> G
+
+    G --> H[Injury Risk Prediction Engine\n(Rules + ML)]
+
+    H --> I[Daily Injury Risk Score]
+    H --> J[Adaptive AI Coach]
+
+    J --> K[Personalized Corrective Exercises\n& Recovery Plan]
+    I --> L[Risk Alerts & Insights]
+
+    K --> B
+    L --> B
+
+    B --> M[User Feedback Loop\nCompliance, Pain Update]
+    M --> H
