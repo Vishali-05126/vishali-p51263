@@ -27,16 +27,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
 import { getTechniqueFeedback } from "@/app/actions";
 import type { AnalyzeTechniqueOutput } from "@/ai/flows/technique-feedback-from-video-analysis";
-import { Loader2, Video, Sparkles } from "lucide-react";
+import { Loader2, Video, Sparkles, CameraOff } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { Badge } from "@/components/ui/badge";
 
 const formSchema = z.object({
   movementDescription: z.string().min(1, "Please pick a move!"),
-  video: z
-    .any()
-    .refine((files) => files?.length == 1, "You need to upload a video!"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -44,6 +42,36 @@ type FormData = z.infer<typeof formSchema>;
 export function TechniqueFeedback() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [result, setResult] = React.useState<AnalyzeTechniqueOutput | null>(null);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [hasCameraPermission, setHasCameraPermission] = React.useState<boolean | undefined>(undefined);
+  const { toast } = useToast();
+
+  React.useEffect(() => {
+    const getCameraPermission = async () => {
+      if (typeof window === 'undefined' || !navigator.mediaDevices) {
+        setHasCameraPermission(false);
+        return;
+      }
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        setHasCameraPermission(true);
+
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
+      } catch (error) {
+        console.error('Error accessing camera:', error);
+        setHasCameraPermission(false);
+        toast({
+          variant: 'destructive',
+          title: 'Camera Access Denied',
+          description: 'Please enable camera permissions in your browser settings to use this app.',
+        });
+      }
+    };
+
+    getCameraPermission();
+  }, [toast]);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -56,14 +84,20 @@ export function TechniqueFeedback() {
     setIsLoading(true);
     setResult(null);
     try {
-      // Mocking video to data URI conversion
-      const mockVideoDataUri = "data:video/mp4;base64,mock-data";
+      // In a real app, you'd capture a video clip from the stream.
+      // For this prototype, we'll continue to send mock data to the AI.
+      const mockVideoDataUri = "data:video/mp4;base64,mock-data-from-live-feed";
       const response = await getTechniqueFeedback({
         movementDescription: data.movementDescription,
         videoDataUri: mockVideoDataUri,
       });
       setResult(response);
     } catch (error) {
+        toast({
+            variant: "destructive",
+            title: "Uh oh! Something went wrong.",
+            description: "There was a problem getting feedback from the AI coach.",
+        });
       console.error("Error getting technique feedback:", error);
     } finally {
       setIsLoading(false);
@@ -76,12 +110,28 @@ export function TechniqueFeedback() {
         <CardHeader>
           <CardTitle>Send to Coach</CardTitle>
           <CardDescription>
-            Pick a move and upload a short video for some tips.
+            Pick a move and show me your form in the camera below!
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="relative aspect-video w-full overflow-hidden rounded-md border bg-muted">
+                <video ref={videoRef} className="w-full h-full object-cover scale-x-[-1]" autoPlay muted playsInline />
+                {hasCameraPermission === false && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 p-4 text-center">
+                        <CameraOff className="size-12 mb-4 text-destructive" />
+                        <h3 className="text-lg font-semibold">Camera Access Required</h3>
+                        <p className="text-sm text-muted-foreground">Please allow camera access in your browser to use this feature.</p>
+                    </div>
+                )}
+                {hasCameraPermission === undefined && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-background/80">
+                        <Loader2 className="size-8 animate-spin text-primary" />
+                    </div>
+                )}
+              </div>
+              
               <FormField
                 control={form.control}
                 name="movementDescription"
@@ -106,23 +156,9 @@ export function TechniqueFeedback() {
                 )}
               />
 
-              <FormField
-                control={form.control}
-                name="video"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Your Video</FormLabel>
-                    <FormControl>
-                      <Input type="file" accept="video/*" onChange={(e) => field.onChange(e.target.files)} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button type="submit" disabled={isLoading} className="w-full">
+              <Button type="submit" disabled={isLoading || hasCameraPermission !== true} className="w-full">
                 {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 size-4" />}
-                Get Feedback!
+                Analyze My Form!
               </Button>
             </form>
           </Form>
@@ -138,23 +174,43 @@ export function TechniqueFeedback() {
         </CardHeader>
         <CardContent className="flex-grow flex flex-col items-center justify-center">
         {isLoading && (
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 text-center">
               <Loader2 className="size-12 animate-spin text-primary" />
-              <p className="text-muted-foreground">Thinking...</p>
+              <p className="text-muted-foreground">The coach is thinking...<br/>This might take a moment.</p>
             </div>
           )}
           {!isLoading && !result && (
              <div className="text-center text-muted-foreground p-8 border-2 border-dashed rounded-lg">
                 <Video className="mx-auto size-12 mb-4 text-primary/50" />
-                <p>Send a video to get your coach's feedback.</p>
+                <p>Ready when you are! Let's check that form.</p>
               </div>
           )}
           {result && (
-            <div className="w-full space-y-4">
-               <h4 className="font-semibold font-headline text-lg">AI Corrections:</h4>
-               <div className="prose prose-sm text-muted-foreground max-w-none whitespace-pre-wrap rounded-md border p-4 bg-secondary/50">
-                {result.biomechanicalFeedback}
-               </div>
+            <div className="w-full space-y-6">
+                <div>
+                    <h4 className="font-semibold font-headline text-lg text-accent mb-2">Summary</h4>
+                    <p className="text-sm text-muted-foreground">{result.overallSummary}</p>
+                </div>
+                <div>
+                    <h4 className="font-semibold font-headline text-lg mb-4">Coach's Corrections</h4>
+                    {result.feedback.length > 0 ? (
+                        <div className="space-y-3">
+                            {result.feedback.map((item, index) => (
+                                <Card key={index} className="bg-secondary">
+                                    <CardContent className="p-4 space-y-1.5">
+                                        <div className="flex justify-between items-start gap-4">
+                                            <p className="font-semibold flex-1">{item.issue}</p>
+                                            {item.timestamp && <Badge variant="outline" className="whitespace-nowrap">{item.timestamp}</Badge>}
+                                        </div>
+                                        <p className="text-sm text-muted-foreground">{item.correction}</p>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    ) : (
+                        <p className="text-sm text-muted-foreground">Looks great! No major corrections found.</p>
+                    )}
+                </div>
             </div>
           )}
         </CardContent>
