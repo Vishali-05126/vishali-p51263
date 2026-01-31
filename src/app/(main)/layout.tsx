@@ -13,10 +13,9 @@ import {
 import {
   Home,
   BarChart3,
-  FlaskConical,
-  FileVideo,
   User,
-  BookOpen,
+  Zap,
+  MessageSquare,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/icons";
@@ -30,11 +29,10 @@ export default function MainLayout({
   
   const menuItems = [
     { href: "/", label: "Home", icon: Home },
-    { href: "/analysis", label: "Check-up", icon: FileVideo },
-    { href: "/plan", label: "My Plan", icon: FlaskConical },
-    { href: "/learn", label: "Learn", icon: BookOpen },
-    { href: "/progress", label: "Awards", icon: BarChart3 },
-    { href: "/profile", label: "Me", icon: User },
+    { href: "/progress", label: "Stats", icon: BarChart3 },
+    { href: "/analysis", label: "Scan", icon: Zap },
+    { href: "/team", label: "Team", icon: MessageSquare },
+    { href: "/profile", label: "Profile", icon: User },
   ];
 
   return (

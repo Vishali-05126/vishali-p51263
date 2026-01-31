@@ -15,7 +15,7 @@ export default function ProgressPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         <div className="container mx-auto p-4 sm:p-6 lg:p-8 absolute bottom-0 left-0 right-0">
           <PageHeader className="mb-0">
-            <PageHeaderTitle>My Awards &amp; Progress</PageHeaderTitle>
+            <PageHeaderTitle>My Stats &amp; Progress</PageHeaderTitle>
             <PageHeaderDescription>
               Track your energy, complete quests, and earn badges on your journey to becoming a star!
             </PageHeaderDescription>

@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/select";
 import { getTechniqueFeedback } from "@/app/actions";
 import type { AnalyzeTechniqueOutput } from "@/ai/flows/technique-feedback-from-video-analysis";
-import { Loader2, Video, Sparkles, CameraOff } from "lucide-react";
+import { Loader2, Video, Zap, CameraOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
 
@@ -157,8 +157,8 @@ export function TechniqueFeedback() {
               />
 
               <Button type="submit" disabled={isLoading || hasCameraPermission !== true} className="w-full">
-                {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Sparkles className="mr-2 size-4" />}
-                Analyze My Form!
+                {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Zap className="mr-2 size-4" />}
+                Scan My Form!
               </Button>
             </form>
           </Form>
