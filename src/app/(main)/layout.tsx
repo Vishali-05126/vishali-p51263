@@ -16,6 +16,8 @@ import {
   User,
   Zap,
   MessageSquare,
+  Brain,
+  BookOpen,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/icons";
@@ -31,6 +33,8 @@ export default function MainLayout({
     { href: "/", label: "Home", icon: Home },
     { href: "/progress", label: "Stats", icon: BarChart3 },
     { href: "/analysis", label: "Scan", icon: Zap },
+    { href: "/mental-readiness", label: "Mindset", icon: Brain },
+    { href: "/learn", label: "Learn", icon: BookOpen },
     { href: "/team", label: "Team", icon: MessageSquare },
     { href: "/profile", label: "Profile", icon: User },
   ];

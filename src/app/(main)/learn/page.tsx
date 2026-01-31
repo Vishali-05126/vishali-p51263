@@ -1,7 +1,7 @@
 import { PageHeader, PageHeaderDescription, PageHeaderTitle } from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ShieldCheck, Dumbbell } from 'lucide-react';
+import { ShieldCheck, Dumbbell, Wind } from 'lucide-react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -35,6 +35,12 @@ const programs = [
         description: "A strong core is your body's foundation. This program builds the strength needed to prevent back, hip, and knee injuries.",
         icon: Dumbbell,
         image_id: "learn-core"
+    },
+    {
+        title: "Yoga for Athletes",
+        description: "Improve flexibility, balance, and focus. A perfect complement to any training regimen for recovery and mental clarity.",
+        icon: Wind,
+        image_id: "learn-yoga"
     }
 ]
 
@@ -89,7 +95,7 @@ export default function LearnPage() {
           <TabsTrigger value="injury-info">Injury Info</TabsTrigger>
         </TabsList>
         <TabsContent value="programs" className="mt-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {programs.map((program) => {
                 const programImage = PlaceHolderImages.find(p => p.id === program.image_id);
                 return (

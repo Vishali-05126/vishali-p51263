@@ -1,7 +1,7 @@
 import { InjuryRiskAssessment } from "@/components/dashboard/injury-risk-assessment";
 import { PageHeader, PageHeaderDescription, PageHeaderTitle } from "@/components/page-header";
 import { Card } from "@/components/ui/card";
-import { FlaskConical, BookOpen, Zap, BarChart3, User, MessageSquare } from "lucide-react";
+import { FlaskConical, BookOpen, Zap, BarChart3, User, MessageSquare, Brain } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -21,6 +21,12 @@ export default function DashboardPage() {
       image_id: "get-my-plan",
     },
     {
+      href: "/mental-readiness",
+      label: "Mental Check-in",
+      icon: Brain,
+      image_id: "mental-check",
+    },
+    {
       href: "/learn",
       label: "Injury Intel",
       icon: BookOpen,
@@ -32,17 +38,17 @@ export default function DashboardPage() {
       icon: BarChart3,
       image_id: "progress",
     },
-    {
-      href: "/profile",
-      label: "My Profile",
-      icon: User,
-      image_id: "profile",
-    },
      {
       href: "/team",
       label: "Team Hub",
       icon: MessageSquare,
       image_id: "soccer",
+    },
+    {
+      href: "/profile",
+      label: "My Profile",
+      icon: User,
+      image_id: "profile",
     },
   ];
 
