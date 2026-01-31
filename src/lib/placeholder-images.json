@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "runner",
+      "description": "A person running on a track.",
+      "imageUrl": "https://images.unsplash.com/photo-1717406362477-8555b1190a87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxydW5uZXIlMjB0cmFja3xlbnwwfHx8fDE3Njk4ODY0NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "runner track"
+    },
+    {
+      "id": "kettlebell",
+      "description": "A person swinging a kettlebell.",
+      "imageUrl": "https://images.unsplash.com/photo-1566568531155-07244e00963d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3Njk4NjcxNTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kettlebell workout"
+    },
+    {
+      "id": "yoga",
+      "description": "A person doing yoga.",
+      "imageUrl": "https://images.unsplash.com/photo-1599447292180-45fd84092ef0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx5b2dhJTIwcG9zZXxlbnwwfHx8fDE3Njk4ODUyMjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "yoga pose"
+    },
+    {
+      "id": "progress",
+      "description": "A chart showing progress.",
+      "imageUrl": "https://images.unsplash.com/photo-1762279389020-eeeb69c25813?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaGFydCUyMGdyYXBofGVufDB8fHx8MTc2OTc5NjczMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chart graph"
+    },
+    {
+      "id": "profile",
+      "description": "A profile avatar.",
+      "imageUrl": "https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9maWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY5ODM4NTc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile portrait"
+    },
+    {
+      "id": "analyze-technique",
+      "description": "A video analysis graphic.",
+      "imageUrl": "https://images.unsplash.com/photo-1696041760912-a06e1f747850?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx2aWRlbyUyMGFuYWx5c2lzfGVufDB8fHx8MTc2OTg4NjQ0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "video analysis"
+    },
+    {
+      "id": "get-my-plan",
+      "description": "A person planning their workout.",
+      "imageUrl": "https://images.unsplash.com/photo-1591311630200-ffa9120a540f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b3Jrb3V0JTIwcGxhbnxlbnwwfHx8fDE3Njk4ODY0NDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workout plan"
+    }
+  ]
 }

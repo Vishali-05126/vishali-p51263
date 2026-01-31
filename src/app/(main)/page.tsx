@@ -1,10 +1,15 @@
 import { InjuryRiskAssessment } from "@/components/dashboard/injury-risk-assessment";
 import { PageHeader, PageHeaderDescription, PageHeaderTitle } from "@/components/page-header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { FlaskConical, FileVideo } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 export default function DashboardPage() {
+  const analyzeImage = PlaceHolderImages.find(p => p.id === 'analyze-technique');
+  const planImage = PlaceHolderImages.find(p => p.id === 'get-my-plan');
+
   return (
     <div className="container mx-auto p-4 sm:p-6 lg:p-8">
       <PageHeader>
@@ -18,25 +23,24 @@ export default function DashboardPage() {
           <InjuryRiskAssessment />
         </div>
         <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Link href="/analysis">
-                <Card className="flex flex-col items-center justify-center p-6 hover:bg-accent transition-colors">
-                  <FileVideo className="size-8 mb-2 text-primary" />
-                  <span className="font-semibold text-center">Analyze Technique</span>
+            <Link href="/analysis" className="relative block group overflow-hidden rounded-lg">
+                <Card>
+                    {analyzeImage && <Image src={analyzeImage.imageUrl} alt={analyzeImage.description} width={400} height={300} className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105" data-ai-hint={analyzeImage.imageHint}/>}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col items-center justify-end p-6">
+                        <FileVideo className="size-8 mb-2 text-white" />
+                        <span className="font-semibold text-lg text-white text-center">Analyze Technique</span>
+                    </div>
                 </Card>
-              </Link>
-              <Link href="/plan">
-                <Card className="flex flex-col items-center justify-center p-6 hover:bg-accent transition-colors">
-                  <FlaskConical className="size-8 mb-2 text-primary" />
-                  <span className="font-semibold text-center">Get My Plan</span>
+            </Link>
+            <Link href="/plan" className="relative block group overflow-hidden rounded-lg">
+                <Card>
+                    {planImage && <Image src={planImage.imageUrl} alt={planImage.description} width={400} height={300} className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105" data-ai-hint={planImage.imageHint} />}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col items-center justify-end p-6">
+                        <FlaskConical className="size-8 mb-2 text-white" />
+                        <span className="font-semibold text-lg text-white text-center">Get My Plan</span>
+                    </div>
                 </Card>
-              </Link>
-            </CardContent>
-          </Card>
+            </Link>
         </div>
       </div>
     </div>
