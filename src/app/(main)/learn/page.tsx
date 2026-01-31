@@ -29,10 +29,22 @@ const programs = [
         description: "A must for overhead athletes (baseball, swimming, volleyball) to build strong, resilient shoulders.",
         icon: Dumbbell,
         image_id: "learn-shoulder"
+    },
+    {
+        title: "Core Stability Essentials",
+        description: "A strong core is your body's foundation. This program builds the strength needed to prevent back, hip, and knee injuries.",
+        icon: Dumbbell,
+        image_id: "learn-core"
     }
 ]
 
 const articles = [
+    {
+        title: "The 5 Golden Rules of Injury Prevention",
+        description: "Follow these five fundamental principles to dramatically reduce your risk of getting sidelined.",
+        category: "General Principles",
+        image_id: "learn-golden-rules"
+    },
     {
         title: "Understanding Ankle Sprains",
         description: "Learn why they happen, how to treat them, and the best exercises to prevent them.",
